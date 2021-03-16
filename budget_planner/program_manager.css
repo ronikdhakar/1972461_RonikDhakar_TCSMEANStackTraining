@@ -1,0 +1,33 @@
+.out {
+    width: 420px;
+    height: 300px;
+    padding: 30px;
+    border: 5px solid gray;
+    margin: auto;
+    font-size: 30px;
+  }
+
+  .in {
+    display: flex;
+    flex-direction: row;
+  }
+
+
+  label {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+    width: 400px;
+    line-height: 26px;
+    margin-bottom: 10px;
+  }
+  
+  input {
+    height: 20px;
+    flex: 0 0 200px;
+    justify-content: flex-end;
+    margin-left: 10px;
+    box-sizing: border-box;
+    border: 3.5px solid red;
+  }
