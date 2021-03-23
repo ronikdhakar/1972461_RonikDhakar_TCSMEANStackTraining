@@ -1,0 +1,17 @@
+.out {
+    width: 600px;
+    height: auto;
+    padding: 30px;
+    border: 5px solid gray;
+    margin: auto;
+    font-size: 30px;
+  }
+
+  .tableClass th,td{
+    border: 1px solid black;
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 40px;
+    text-align: center;
+}
