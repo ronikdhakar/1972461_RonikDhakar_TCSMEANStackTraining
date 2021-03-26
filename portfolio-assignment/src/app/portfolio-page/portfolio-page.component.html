@@ -1,0 +1,41 @@
+<div class="global-container">
+	<div class="card login-form">
+	
+	<div class="card-body">
+		<h3 class="card-title text-center">My Portfolio</h3>
+        <br/>
+		<button type="logout" style="margin-left: 200px;margin-bottom: 20px;margin-top: -10px;" class="btn btn-primary btn-block" (click)="logOut()">Logout</button>
+        <label for="exampleInputEmail1" style="margin-left: 10px;">Welcome : {{user}}</label>
+		<div class="card-text">
+			<form #tableData="ngForm" (ngSubmit)="fillTable(tableData.value)">
+				<div class="form-group">
+					<label for="exampleInputEmail1">Contact Name</label>
+					<input type="email" class="form-control form-control-sm" id="exampleContactNumber" aria-describedby="emailHelp" name="contactNumber" ngModel>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Phone Number </label>
+					<input type="text" class="form-control form-control-sm" id="examplePhoneNumber" name="phoneNumber" ngModel>
+				</div>
+				<button type="submit" id="myform" class="btn btn-primary btn-block" style="margin-bottom: 10px;">Save</button>
+				<br/>			
+				
+			</form>
+			<table class="tableClass">
+				<tr>
+					<th>
+						Contact Name
+					</th>
+					<th>
+						Phone Number
+					</th>
+				</tr>
+				<tr *ngFor="let detail of table_data">
+					<td>{{detail.contactNumber}}</td>
+					<td>{{detail.phoneNumber}}</td>
+
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+</div>
