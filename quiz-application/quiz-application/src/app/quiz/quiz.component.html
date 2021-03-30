@@ -1,0 +1,81 @@
+<h2 style="margin-left: 800px;">Quiz Page</h2>
+<hr/>
+
+
+<form id="CorrectAnswer">
+    <div *ngIf="correct_answer_check==false">
+        <h3 style="margin-left: 5%;color:red">Instructions</h3>
+        <ul style="margin-left: 4.5%;">
+            <li>The passing criteria for the quiz is to score more than 70% </li>
+        </ul>
+        <hr/>
+        <div *ngFor="let data of quiz_questions" style="margin-left: 80px;">
+            <h6 style="display: inline">Q : {{data.id}}</h6>
+            <label style="display: inline;margin-left: 10px;">{{data.question}}</label><br/>
+            <div *ngFor="let o of data.option">            
+                <input style="display: inline;margin-left: 10px;" type="radio" name="{{data.id}}" value="{{o.optionid}}" [(ngModel)]="data.selected" />
+                <label style="display: inline;margin-left: 10px;">{{o.name}}</label>
+            </div>
+            <br/>
+        </div>
+        <input class="btn btn-primary" style="margin-left: 80px;" type="submit" value="Submit" (click)="checkData()" data-target="#myModal"/>
+        <input class="btn btn-primary" style="margin-left: 80px;" type="reset" value="Reset"/>
+    
+    </div>
+    <div *ngIf="correct_answer_check==true">
+        <div *ngFor="let data of quiz_questions" style="margin-left: 80px;">
+            <h6 style="display: inline">Q : {{data.id}}</h6>
+            <label style="display: inline;margin-left: 10px;">{{data.question}}</label><br/>
+            <div *ngFor="let data1 of correct_answers">
+                
+                
+                    <div *ngIf="data.id==data1.id && data1.answer==data1.selected">
+                        <label style="color:green">Correct Answer  : {{data.correct}}</label>
+                        <br/>
+                        <label style="color:green">Your Answer : {{data.correct}}</label>
+                    </div>
+                    <div *ngIf="data.id==data1.id && data1.answer!=data1.selected">
+                        <label style="color:green">Correct Answer : {{data.correct}}</label><br/>
+                        <div *ngFor="let o of data.option">
+                            <div *ngIf="o.optionid==data1.selected">
+                                <label style="color:red">Your Answer : {{o.name}}</label>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <br/>
+        </div>
+        <input class="btn btn-primary" style="margin-left:80px;margin-top: 20px;"  type="button" value="Restart Quiz" (click)="Restart()" />
+    </div> 
+</form>
+
+
+
+
+
+<div id="myModal" class="overlay" *ngIf="popup">
+	<div class="popup">
+		<h2>Results </h2>
+		<div class="content">
+		Correct Answers : {{correct}}
+		</div>
+        <div class="content">
+            Incorrect Answers : {{incorrect}}
+        </div>
+        <div class="content">
+            Marks : {{marks}}%
+        </div>
+        <div style="color:green" class="content" *ngIf="result=='Pass'">
+            Result : {{result}}
+        </div>
+        <div style="color:red" class="content" *ngIf="result=='Fail'">
+            Result : {{result}}
+        </div>
+        
+        <div >
+            <input class="btn btn-primary" style="margin-left: 20%;" type="button" value="Answers" data-target="#CorrectAnswer" (click)="correctAnswer()" />
+            <input class="btn btn-primary" style="margin-left: 60%; margin-top: -15%;" type="button" value="Restart Quiz" (click)="Restart()" />
+        </div>
+	</div>
+    
+</div>
