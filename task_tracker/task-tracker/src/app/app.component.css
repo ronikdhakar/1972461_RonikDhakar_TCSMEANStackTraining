@@ -1,0 +1,18 @@
+
+  table {
+    width: 85%;
+    table-layout: fixed;
+  }
+
+  
+  .truncate-cell {
+    text-overflow: ellipsis;
+    overflow : hidden;
+    white-space: nowrap;
+  }
+
+  .truncate-cell:hover {
+    text-overflow: clip;
+    white-space: normal;
+    word-break: break-all;
+}
